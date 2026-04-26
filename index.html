@@ -4,81 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>README Template Generator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text x='0' y='14'>📝</text></svg>" />
     <style>
-        textarea, input { border-radius: 0.375rem; border: 1px solid #d1d5db; padding: 0.5rem 0.75rem; width: 100%; margin-bottom: 1rem; }
-        button { padding: 0.625rem 1rem; border-radius: 0.375rem; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
-        .btn-primary { background-color: #3b82f6; color: white; }
-        .btn-primary:hover { background-color: #2563eb; }
-        .btn-secondary { background-color: #e5e7eb; color: #374151; }
-        .btn-secondary:hover { background-color: #d1d5db; }
+        body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f2f5; color: #333; }
+        .container { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); max-width: 800px; width: 90%; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 20px; }
+        p { line-height: 1.6; margin-bottom: 20px; }
+        .button-group { display: flex; gap: 10px; justify-content: center; margin-top: 20px; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease; }
+        button:hover { background-color: #0056b3; }
+        footer { margin-top: 40px; font-size: 0.9em; color: #666; }
+        #purchase-button { background-color: #28a745; }
+        #purchase-button:hover { background-color: #218838; }
     </style>
 </head>
-<body class="bg-gray-100 p-8">
-    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        <h1 class="text-3xl font-bold mb-6 text-center">README Template Generator</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-4">
-                <label class="block text-gray-700">Project Title:</label>
-                <input type="text" id="title" placeholder="e.g., My Awesome Project">
-                <label class="block text-gray-700">Description:</label>
-                <textarea id="description" rows="3" placeholder="A brief overview..."></textarea>
-                <label class="block text-gray-700">Installation:</label>
-                <textarea id="installation" rows="3" placeholder="How to install..."></textarea>
-                <label class="block text-gray-700">Usage:</label>
-                <textarea id="usage" rows="3" placeholder="How to use..."></textarea>
-                <label class="block text-gray-700">License:</label>
-                <input type="text" id="license" value="MIT License">
-                <button id="generateBtn" class="btn-primary w-full">Generate README</button>
-            </div>
-            <div>
-                <h2 class="text-xl font-semibold mb-4">Live Preview (Generated Markdown)</h2>
-                <div id="preview" class="bg-gray-50 p-4 rounded-md border border-gray-200 min-h-[300px] whitespace-pre-wrap font-mono text-sm"></div>
-                <button id="copyBtn" class="btn-secondary w-full mt-4">Copy to Clipboard</button>
-            </div>
-        </div>
-        <div id="pricing" class="text-center mt-8">
-            <p class="text-lg font-semibold">Get unlimited generations for only $9.99!</p>
-            <button class="btn-primary mt-2 mx-auto" onclick="alert('Stripe Integration Coming Soon!')">Buy Now</button>
+<body>
+    <div class="container">
+        <h1>🚀 Professional GitHub READMEs, Instantly!</h1>
+        <p>Tired of writing READMEs from scratch? Our generator helps you craft perfect <code>README.md</code> files quickly and effortlessly for your GitHub projects.</p>
+        <p>Get started today and make your projects shine!</p>
+        <div class="button-group">
+             <button id="purchase-button" onclick="window.location.href='#'">Buy Now - $4.99</button>
         </div>
     </div>
-
-    <script>
-        const generateBtn = document.getElementById('generateBtn');
-        const copyBtn = document.getElementById('copyBtn');
-        const preview = document.getElementById('preview');
-
-        function generateReadme() {
-            const title = document.getElementById('title').value;
-            const description = document.getElementById('description').value;
-            const installation = document.getElementById('installation').value;
-            const usage = document.getElementById('usage').value;
-            const license = document.getElementById('license').value;
-
-            let markdown = `# ${title || 'Project Title'}\n\n`;
-            if (description) markdown += `## Description\n${description}\n\n`;
-            if (installation) markdown += `## Installation\n${installation}\n\n`;
-            if (usage) markdown += `## Usage\n${usage}\n\n`;
-            if (license) markdown += `## License\nThis project is licensed under the ${license}.\n\n`;
-
-            preview.textContent = markdown;
-        }
-
-        generateBtn.addEventListener('click', generateReadme);
-        document.querySelectorAll('input, textarea').forEach(element => {
-            element.addEventListener('input', generateReadme);
-        });
-
-        copyBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(preview.textContent).then(() => {
-                alert('Copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
-        });
-
-        // Initial generation
-        generateReadme();
-    </script>
+    <footer>
+        &copy; 2024 APEX Products. All rights reserved.
+    </footer>
 </body>
 </html>
